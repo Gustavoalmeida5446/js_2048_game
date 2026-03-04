@@ -28,13 +28,13 @@ function update() {
 btn.addEventListener('click', () => {
   if (game.getStatus() === 'idle') {
     game.start();
-    btn.textContent = 'Restart';
-    btn.classList.replace('start', 'restart');
   } else {
     game.restart();
-    btn.textContent = 'Start';
-    btn.classList.replace('restart', 'start');
   }
+
+  btn.textContent = 'Restart';
+  btn.classList.remove('start');
+  btn.classList.add('restart');
 
   update();
 });
