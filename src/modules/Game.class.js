@@ -43,6 +43,7 @@ class Game {
 
   restart() {
     this.setup();
+    this.start();
   }
 
   addRandomTile() {

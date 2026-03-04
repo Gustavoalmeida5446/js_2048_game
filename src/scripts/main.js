@@ -32,25 +32,37 @@ btn.addEventListener('click', () => {
     btn.classList.replace('start', 'restart');
   } else {
     game.restart();
+    btn.textContent = 'Start';
+    btn.classList.replace('restart', 'start');
   }
+
   update();
 });
 
 document.addEventListener('keydown', (e) => {
+  let moved = false;
+
   if (e.key === 'ArrowLeft') {
     game.moveLeft();
+    moved = true;
   }
 
   if (e.key === 'ArrowRight') {
     game.moveRight();
+    moved = true;
   }
 
   if (e.key === 'ArrowUp') {
     game.moveUp();
+    moved = true;
   }
 
   if (e.key === 'ArrowDown') {
     game.moveDown();
+    moved = true;
   }
-  update();
+
+  if (moved) {
+    update();
+  }
 });
